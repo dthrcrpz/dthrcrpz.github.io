@@ -1,0 +1,58 @@
+@import 'globals'
+
+nav
+	position: fixed
+	top: 0
+	left: 0
+	width: 100%
+	right: 0
+	background-color: $primary
+	box-sizing: border-box
+	padding: 20px 0
+	.container
+		display: flex
+		justify-content: space-between
+		align-items: center
+		.main
+			a
+				@extend .righteous
+				color: #fff
+				font-size: 30px
+		.links
+			a
+				color: #fff
+				margin-left: 30px
+
+.intro
+	height: 100vh
+	.container
+		height: 100%
+		display: flex
+		justify-content: center
+		flex-flow: column
+		align-items: center
+		.photo
+			@extend .t
+			height: 150px
+			width: 150px
+			border-radius: 100%
+			margin-bottom: 20px
+		h1
+			text-align: center
+			span
+				color: $primary
+		a
+			margin-top: 30px
+			border: 2px solid $primary
+			padding: 10px 25px
+			font-size: 18px
+			color: $primary
+			transition: .4s
+			.arrow
+				display: inline-block
+				transition: .3s
+			&:hover
+				background-color: $primary
+				color: #fff
+				.arrow
+					transform: translateX(5px)
