@@ -122,6 +122,12 @@
 						imageFolderName: 'ygc',
 						link: 'https://ygcrewardsplus-apply.rcbcbankard.com/'
 					},
+					{
+						title: 'pera247',
+						techs: 'Laravel',
+						imageFolderName: 'pera247',
+						link: 'https://pera247.ph/'
+					},
 				],
 				projectToView: 0,
 				vViewOptions: {
