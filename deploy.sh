@@ -21,7 +21,7 @@ git add -A
 git commit -m 'deploy'
 
 # deploy
-git push origin gh-page
+git push origin gh-pages
 
 
 cd -
