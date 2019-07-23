@@ -9,6 +9,8 @@ nav
 	background-color: $primary
 	box-sizing: border-box
 	padding: 20px 0
+	z-index: 100
+	box-shadow: 0 0 11px rgba(0, 0, 0, 0.5)
 	.container
 		display: flex
 		justify-content: space-between
@@ -25,34 +27,88 @@ nav
 
 .intro
 	height: 100vh
+	position: relative
 	.container
 		height: 100%
 		display: flex
 		justify-content: center
 		flex-flow: column
 		align-items: center
+		.texts
+			display: flex
+			justify-content: center
+			flex-flow: column
+			align-items: center
+			z-index: 2
+			h1
+				text-align: center
+				font-size: 35px
+				font-weight: normal
+				span
+					color: $primary
+					font-weight: bold
+			a
+				margin-top: 30px
+				border: 2px solid $primary
+				padding: 10px 25px
+				font-size: 18px
+				color: $primary
+				transition: .4s
+				background-color: #fff
+				.arrow
+					display: inline-block
+					transition: .3s
+				&:hover
+					.arrow
+						transform: rotate(90deg) translateY(-5px)
 		.photo
-			@extend .t
-			height: 150px
-			width: 150px
+			height: 250px
+			width: 250px
 			border-radius: 100%
 			margin-bottom: 20px
-		h1
-			text-align: center
-			span
-				color: $primary
-		a
-			margin-top: 30px
-			border: 2px solid $primary
-			padding: 10px 25px
-			font-size: 18px
-			color: $primary
-			transition: .4s
-			.arrow
-				display: inline-block
-				transition: .3s
-			&:hover
-				background-color: $primary
+			background-image: url('/me.jpg')
+			background-size: cover
+			background-position: center
+			background-repeat: no-repeat
+			box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5)
+			z-index: 2
+	.vp
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		z-index: 1
+
+.about
+	background-color: $primary
+	padding: 30px
+	.container
+		display: flex
+		flex-flow: row wrap
+		justify-content: space-between
+		.col
+			flex: 0 1 49%
+			h2
+				color: $secondary
+				@extend .righteous
+				font-size: 30px
+				margin-bottom: 20px
+				font-weight: normal
+			p 
 				color: #fff
-				.arrow
-					transform: translateX(5px)
+				font-size: 20px
+			&.left
+				text-align: center
+				.photo
+					@extend .t
+					height: 250px
+					width: 250px
+					border-radius: 100%
+					margin: 0 auto 30px
+			&.right
+				ul
+					li
+						margin-left: 20px
+						color: #fff
+						font-size: 20px
