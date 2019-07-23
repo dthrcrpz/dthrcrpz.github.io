@@ -18,7 +18,7 @@ nav
 		.main
 			a
 				@extend .righteous
-				color: #fff
+				color: $secondary
 				font-size: 30px
 		.links
 			a
@@ -82,7 +82,7 @@ nav
 
 .about
 	background-color: $primary
-	padding: 30px
+	padding: 60px
 	.container
 		display: flex
 		flex-flow: row wrap
@@ -100,12 +100,13 @@ nav
 				font-size: 20px
 			&.left
 				text-align: center
-				.photo
+				.hexagon
 					@extend .t
-					height: 250px
-					width: 250px
-					border-radius: 100%
+					height: 180px
+					width: 126px
 					margin: 0 auto 30px
+					background-color: red
+					border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%
 			&.right
 				ul
 					li

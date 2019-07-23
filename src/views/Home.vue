@@ -29,7 +29,7 @@
 		<div class="about">
 			<div class="container">
 				<div class="left col">
-					<div class="photo"></div>
+					<div class="hexagon"></div>
 					<h2>Who's this guy?</h2>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -39,7 +39,7 @@
 					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 				</div>
 				<div class="right col">
-					<h2>Skills, Tools & Technologies</h2>
+					<h2>Skills, Tools, & Technologies</h2>
 					<ul>
 						<li>Javascript</li>
 						<li>Javascript</li>
