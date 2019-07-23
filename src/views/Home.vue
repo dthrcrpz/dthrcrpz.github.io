@@ -27,10 +27,11 @@
 		</div>
 
 		<div class="about">
+			<h1>About Me</h1>
 			<div class="container">
 				<div class="left col">
-					<div class="hexagon"></div>
-					<h2>Who's this guy?</h2>
+					<div class="egg"></div>
+					<h2>Who's this egg?</h2>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -41,17 +42,38 @@
 				<div class="right col">
 					<h2>Skills, Tools, & Technologies</h2>
 					<ul>
+						<li>HTML</li>
 						<li>Javascript</li>
-						<li>Javascript</li>
-						<li>Javascript</li>
-						<li>Javascript</li>
-						<li>Javascript</li>
-						<li>Javascript</li>
-						<li>Javascript</li>
-						<li>Javascript</li>
-						<li>Javascript</li>
-						<li>Javascript</li>
+						<li>CSS</li>
+						<li>Vue</li>
+						<li>Nuxt</li>
+						<li>PHP</li>
+						<li>Laravel</li>
+						<li>MySQL</li>
+						<li>Git</li>
+						<li>SASS/LESS/Stylus</li>
+						<li>Linux</li>
+						<li>JSON</li>
+						<li>RESTful API's</li>
+						<li>AWS</li>
+						<li>npm</li>
 					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="projects">
+			<div class="container">
+				<h1>Projects</h1>
+				<div class="boxes-container">
+					<div class="box" :style="`background-image: url('https://picsum.photos/id/5${key}/400/400')`" v-for="(project, key) in 8">
+						<div class="overlayer"></div>
+						<div class="texts">
+							<p class="title">Manila Ocean Park</p>
+							<p class="tech">Vue, Nuxt, Laravel</p>
+						</div>
+						<button class="more-details">More Details <span>+</span></button>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -60,6 +82,14 @@
 
 <script>
 	export default {
-
+		data () {
+			return {
+				projects: [
+					{
+						img: '/images/1.jpg',
+					}
+				]
+			}
+		}
 	}
 </script>

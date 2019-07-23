@@ -18,6 +18,16 @@ a, a:link, a:active, a:visited, a:hover
 	text-decoration: none
 	color: #1c1c1c
 
+a, button, input, select, textarea
+	&:focus
+		outline: none !important
+
+button
+	cursor: pointer
+
+.noselect
+	user-select: none
+
 .t
 	border: 1px  solid red
 
