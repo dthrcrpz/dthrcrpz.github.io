@@ -66,30 +66,90 @@
 			<div class="container">
 				<h1>Projects</h1>
 				<div class="boxes-container">
-					<div class="box" :style="`background-image: url('https://picsum.photos/id/5${key}/400/400')`" v-for="(project, key) in 8">
+					<div class="box" :style="`background-image: url('/images/${project.imageFolderName}/1.png')`" v-for="(project, key) in projects" :key="key">
 						<div class="overlayer"></div>
 						<div class="texts">
-							<p class="title">Manila Ocean Park</p>
-							<p class="tech">Vue, Nuxt, Laravel</p>
+							<p class="title">{{ project.title }}</p>
+							<p class="tech">{{ project.techs }}</p>
 						</div>
-						<button class="more-details">More Details <span>+</span></button>
+						<div class="buttons">
+							<button class="button" @click="viewProject(key)">View Photos <span>+</span></button>
+							<a class="button" :href="project.link" target="_blank">Visit Site <span>↗</span></a>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+
+		<transition enter-active-class="animated fadeInDown" leave-active-class="animated fadeOutUp">
+        	<project-view v-if="$store.state.showModal">
+				<p>We appreciate that you’ve taken the time to write us. We’ll get back to you very soon.</p>
+				<button class="green-button" @click="$store.state.showModal = false">Okay</button>
+	        </project-view>
+        </transition>
+
+        <!-- viewer -->
+		<div class="images-viewer" v-viewer='vViewOptions'>
+            <img :src="`/images/${projects[projectToView].imageFolderName}/${n}.png`" style="display: none" v-for="(n, key) in 4" :key="key">
+        </div>
+		<!-- end -->
 	</div>
 </template>
 
 <script>
+	import ProjectView from '../components/ProjectView'
+
 	export default {
+		components: { ProjectView },
 		data () {
 			return {
 				projects: [
 					{
-						img: '/images/1.jpg',
-					}
-				]
+						title: 'Manila Ocean Park',
+						techs: 'Vue, Nuxt, Laravel',
+						imageFolderName: 'manila-ocean-park',
+						link: 'https://www.manilaoceanpark.com/'
+					},
+					{
+						title: 'LBC Online Booking',
+						techs: 'Vue',
+						imageFolderName: 'lbc-online-booking',
+						link: 'https://online-booking.lbcexpress.com'
+					},
+					{
+						title: 'YGC Rewards Plus',
+						techs: 'Vue, Laravel',
+						imageFolderName: 'ygc',
+						link: 'https://ygcrewardsplus-apply.rcbcbankard.com/'
+					},
+				],
+				projectToView: 0,
+				vViewOptions: {
+                    inline: false,
+                    button: true,
+                    navbar: false,
+                    toolbar: true,
+                    tooltip: false,
+                    movable: true,
+                    zoomable: true,
+                    rotatable: false,
+                    scalable: true,
+                    transition: true,
+                    fullscreen: true,
+                    keyboard: true,
+                    navbar: true,
+                    title: ''
+                },
 			}
+		},
+		methods: {
+			viewProject (index) {
+				this.projectToView = index
+				setTimeout(() => {
+					let viewer = this.$el.querySelector('.images-viewer').$viewer
+	                viewer.show()
+				}, 100)
+			},
 		}
 	}
 </script>
