@@ -90,4 +90,34 @@ button
 	margin: 6% auto 0
 	background: #fff
 
+.btt
+	position: fixed
+	bottom: 30px
+	right: 30px
+	height: 45px
+	width: 45px
+	cursor: pointer
+	background-color: #fff
+	background-image: url('/images/btt.svg')
+	background-position: center
+	background-size: contain
+	transition: .5s
+	transform: translateY(20px)
+	opacity: 0
+	visibility: hidden
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4)
+	border-radius: 100%
+	border: 2px solid $primary
+	&:hover
+		transform: translateY(-5px)
+	&.shown
+		opacity: 1
+		visibility: visible
+		transform: translateY(0px)
+	@media (max-width: 768px) 
+		bottom: 20px
+		right: 20px
+		height: 35px
+		width: 35px
+
 // wew
