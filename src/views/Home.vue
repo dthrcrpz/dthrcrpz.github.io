@@ -85,7 +85,7 @@
 			<div class="container">
 				<h1 class="section-title">Contact</h1>
 				<h2 class="subtitle">Have a question or wanna work together?</h2>
-				<form @submit.prevent="submitInquiry()">
+				<form @submit.prevent="submitInquiry()" id="contact-form">
 					<div class="form-group">
 						<input type="text" name="name" placeholder="Name" v-validate="'required'">
 						<transition enter-active-class="animated fadeInDown" leave-active-class="animated fadeOutUp"><span class="validation-errors" v-if="errors.has('name')">{{ errors.first('name') }}</span></transition>
@@ -174,9 +174,22 @@
 		},
 		methods: {
 			submitInquiry () {
-				this.$validator.validateAll(res => {
-					console.log(res)
+				let formData = new FormData(document.querySelector('#contact-form'))
+				formData.append('service_id', 'gmail')
+				formData.append('template_id', 'dthrcrpz_contact_me')
+				formData.append('user_id', 'user_zMraROdatRq8hQGUnntEk')
+
+				this.axios.post('https://api.emailjs.com/api/v1.0/email/send-form', formData).then(res => {
+					console.log(res.data)
+				}).catch(err => {
+					console.log(err)
 				})
+
+				// this.$validator.validateAll(res => {
+				// 	if (res) {
+
+				// 	}
+				// })
 			},
 			viewProject (index) {
 				this.projectToView = index

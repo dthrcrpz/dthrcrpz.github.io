@@ -4,6 +4,8 @@ import vClickOutside from 'v-click-outside'
 import Viewer from 'v-viewer'
 import VueScrollTo from 'vue-scrollto'
 import VeeValidate from 'vee-validate'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 
 import App from './App.vue'
 import router from './router'
@@ -17,6 +19,7 @@ Vue.use(VueParticles)
 Vue.use(vClickOutside)
 Vue.use(Viewer)
 Vue.use(VeeValidate)
+Vue.use(VueAxios, axios)
 Vue.use(VueScrollTo, {
 	container: "body",
 	duration: 600,
