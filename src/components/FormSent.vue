@@ -1,6 +1,6 @@
 <template>
 	<div class="modal-template">
-		<div class="project-view modal" v-click-outside="closeMe">
+		<div class="form-sent modal" v-click-outside="closeMe">
 			<slot></slot>
 		</div>
 	</div>

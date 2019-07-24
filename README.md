@@ -1,29 +1,13 @@
-# app
+1 x big tako (3 pcs) - 86 #billy
+2 x kani & corn (6 pcs) - 280 #joy & mon & breeze & jel
+3 x cheesy bacon (6 pcs) - 585 #teryong & billy & alvin & emman
 
-## Project setup
-```
-npm install
-```
+1 x big tako (3pcs)
+5 x cheesy bacon (6 pcs)
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
 
-### Compiles and minifies for production
-```
-npm run build
-```
 
-### Run your tests
-```
-npm run test
-```
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+1 x big tako (6pcs)
+1 x cheesy bacon (6pcs)
+1 x baby tako (6pcs)

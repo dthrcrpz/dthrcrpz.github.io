@@ -106,10 +106,11 @@
 		</section>
 
 		<transition enter-active-class="animated fadeInDown" leave-active-class="animated fadeOutUp">
-        	<project-view v-if="$store.state.showModal">
-				<p>We appreciate that you’ve taken the time to write us. We’ll get back to you very soon.</p>
-				<button class="green-button" @click="$store.state.showModal = false">Okay</button>
-	        </project-view>
+        	<form-sent v-if="$store.state.showModal">
+        		<h2>Thanks!</h2>
+				<p>I appreciate that you’ve taken the time to contact me. <br> I'll get back to you as soon as I can.</p>
+				<button @click="$store.state.showModal = false">Yeah, sure!</button>
+	        </form-sent>
         </transition>
 
         <!-- viewer -->
@@ -121,10 +122,10 @@
 </template>
 
 <script>
-	import ProjectView from '../components/ProjectView'
+	import FormSent from '../components/FormSent'
 
 	export default {
-		components: { ProjectView },
+		components: { FormSent },
 		data () {
 			return {
 				projects: [
@@ -174,22 +175,28 @@
 		},
 		methods: {
 			submitInquiry () {
-				let formData = new FormData(document.querySelector('#contact-form'))
-				formData.append('service_id', 'gmail')
-				formData.append('template_id', 'dthrcrpz_contact_me')
-				formData.append('user_id', 'user_zMraROdatRq8hQGUnntEk')
+				this.$validator.validateAll().then(res => {
+					if (res) {
+						let form = document.querySelector('#contact-form')
+						let formData = new FormData(form)
+						formData.append('service_id', 'gmail')
+						formData.append('template_id', 'dthrcrpz_contact_me')
+						formData.append('user_id', 'user_zMraROdatRq8hQGUnntEk')
 
-				this.axios.post('https://api.emailjs.com/api/v1.0/email/send-form', formData).then(res => {
-					console.log(res.data)
-				}).catch(err => {
-					console.log(err)
+						this.$store.state.isLoading = true
+						this.axios.post('https://api.emailjs.com/api/v1.0/email/send-form', formData).then(res => {
+							console.log(res.data)
+							setTimeout(() => {
+								this.$store.state.isLoading = false
+								form.reset()
+								this.$store.state.showModal = true
+							}, 1000)
+						}).catch(err => {
+							console.log(err)
+							this.$store.state.isLoading = false
+						})
+					}
 				})
-
-				// this.$validator.validateAll(res => {
-				// 	if (res) {
-
-				// 	}
-				// })
 			},
 			viewProject (index) {
 				this.projectToView = index

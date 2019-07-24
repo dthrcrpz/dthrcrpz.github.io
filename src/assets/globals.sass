@@ -82,7 +82,6 @@ button
 .modal
 	z-index: 200
 	width: 100%
-	height: 100px
 	display: table
 	top: 10%
 	left: 0
@@ -179,5 +178,24 @@ button
 		z-index: 1
 	&.offset
 		top: calc(100% - 25px)
+
+.loading-modal
+	position: fixed
+	z-index: 9999
+	width: 100vw
+	height: 100vh
+	top: 0
+	right: 0
+	left: 0
+	bottom: 0
+	background-color: rgba(0, 0, 0, 0.7)
+	max-height: 100vh
+	overflow-y: auto
+	background-image: url('/loading.svg')
+	background-repeat: no-repeat
+	background-position: center
+	background-size: 80px
+	cursor: progress
+
 
 // wew
