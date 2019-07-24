@@ -145,4 +145,39 @@ button
 	color: #fff
 /**	End */
 
+.section-title
+	color: $primary
+	text-align: center
+	margin-bottom: 30px
+	font-size: 48px
+	text-transform: uppercase
+
+.validation-errors
+	position: absolute
+	top: calc(100% + 5px)
+	background: #ff5757
+	color: #fff
+	font-size: 13px
+	z-index: 1
+	padding: 1px 15px
+	border-radius: 3px
+	.noselect
+	left: 10px
+	box-shadow: 0 2px 9px rgba(0, 0, 0, 0.4)
+	&.with-textarea
+		top: 100%
+	&:before
+		content: ""
+		position: absolute
+		bottom: calc(100% - 1px)
+		width: 0
+		height: 0
+		border-left: 7px solid transparent
+		border-right: 7px solid transparent
+		border-bottom: 7px solid #ff5757
+		left: 17px
+		z-index: 1
+	&.offset
+		top: calc(100% - 25px)
+
 // wew

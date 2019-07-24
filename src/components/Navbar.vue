@@ -19,6 +19,7 @@
 				navItems: [
 					{ title: 'About', target: '.about' },
 					{ title: 'Projects', target: '.projects' },
+					{ title: 'Contact', target: '.contact' },
 				]
 			}
 		},

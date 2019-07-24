@@ -1,6 +1,6 @@
 <template>
-	<div>
-		<div class="intro">
+	<div class="page-home">
+		<section class="intro">
 			<div class="container">
 				<div class="photo"></div>
 				<div class="texts">
@@ -9,7 +9,7 @@
 						<br>
 						I'm a Full Stack Web Developer.
 					</h1>
-					<a href="javascript:void" @click="scroll('.about')">Learn More <span class="arrow">→</span></a>
+					<button @click="scroll('.about')">Learn More <span class="arrow">→</span></button>
 				</div>
 			</div>
 			<vue-particles
@@ -24,10 +24,10 @@
 				:linesWidth="2"
 			>
 			</vue-particles>
-		</div>
+		</section>
 
-		<div class="about">
-			<h1>About Me</h1>
+		<section class="about">
+			<h1 class="section-title">About Me</h1>
 			<div class="container">
 				<div class="left col">
 					<div class="egg"></div>
@@ -60,11 +60,11 @@
 					</ul>
 				</div>
 			</div>
-		</div>
+		</section>
 
-		<div class="projects">
+		<section class="projects">
 			<div class="container">
-				<h1>Projects</h1>
+				<h1 class="section-title">Projects</h1>
 				<div class="boxes-container">
 					<div class="box" :style="`background-image: url('/images/${project.imageFolderName}/1.png')`" v-for="(project, key) in projects" :key="key">
 						<div class="overlayer"></div>
@@ -79,7 +79,31 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</section>
+
+		<section class="contact">
+			<div class="container">
+				<h1 class="section-title">Contact</h1>
+				<h2 class="subtitle">Have a question or wanna work together?</h2>
+				<form @submit.prevent="submitInquiry()">
+					<div class="form-group">
+						<input type="text" name="name" placeholder="Name" v-validate="'required'">
+						<transition enter-active-class="animated fadeInDown" leave-active-class="animated fadeOutUp"><span class="validation-errors" v-if="errors.has('name')">{{ errors.first('name') }}</span></transition>
+					</div>
+					<div class="form-group">
+						<input type="text" name="email" placeholder="Email Address" v-validate="'required|email'">
+						<transition enter-active-class="animated fadeInDown" leave-active-class="animated fadeOutUp"><span class="validation-errors" v-if="errors.has('email')">{{ errors.first('email') }}</span></transition>
+					</div>
+					<div class="form-group">
+						<textarea name="message" rows="6" placeholder="Message" v-validate="'required'"></textarea>
+						<transition enter-active-class="animated fadeInDown" leave-active-class="animated fadeOutUp"><span class="validation-errors with-textarea" v-if="errors.has('message')">{{ errors.first('message') }}</span></transition>
+					</div>
+					<div class="button-container">
+						<button>Submit <span>»</span></button>
+					</div>
+				</form>
+			</div>
+		</section>
 
 		<transition enter-active-class="animated fadeInDown" leave-active-class="animated fadeOutUp">
         	<project-view v-if="$store.state.showModal">
@@ -149,6 +173,11 @@
 			}
 		},
 		methods: {
+			submitInquiry () {
+				this.$validator.validateAll(res => {
+					console.log(res)
+				})
+			},
 			viewProject (index) {
 				this.projectToView = index
 				setTimeout(() => {

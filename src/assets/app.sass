@@ -25,9 +25,14 @@ nav
 				color: #fff
 				margin-left: 30px
 
+.page-home
+	& > section
+		padding: 60px 0
+
 .intro
 	height: 100vh
 	position: relative
+	padding: 0 !important
 	.container
 		height: 100%
 		display: flex
@@ -47,18 +52,19 @@ nav
 				span
 					color: $primary
 					font-weight: bold
-			a
+			button
 				margin-top: 30px
 				border: 2px solid $primary
 				padding: 10px 25px
 				font-size: 18px
 				color: $primary
 				transition: .4s
-				background-color: #fff
+				background-color: rgba(255, 255, 255, 0.6)
 				.arrow
 					display: inline-block
 					transition: .3s
 				&:hover
+					box-shadow: 0 1px 9px $secondary
 					.arrow
 						transform: rotate(90deg) translateY(-5px)
 		.photo
@@ -82,13 +88,8 @@ nav
 
 .about
 	background-color: $primary
-	padding: 60px
-	h1
+	.section-title
 		color: $secondary
-		text-align: center
-		margin-bottom: 30px
-		font-size: 48px
-		text-transform: uppercase
 	.container
 		display: flex
 		flex-flow: row wrap
@@ -125,14 +126,8 @@ nav
 						font-size: 20px
 
 .projects
-	padding: 60px 0
+	background-color: #f5f5f5
 	.container
-		h1
-			color: $primary
-			text-align: center
-			margin-bottom: 30px
-			font-size: 48px
-			text-transform: uppercase
 		.boxes-container
 			display: flex
 			flex-flow: row wrap
@@ -223,5 +218,52 @@ nav
 
 .project-view
 	max-width: 600px
+
+.contact
+	padding: 60px 0
+	background-color: $primary
+	.container
+		.section-title
+			color: $secondary
+		.subtitle
+			color: #fff
+			text-align: center
+		form
+			margin: 20px auto 0
+			max-width: 600px
+			width: 100%
+			.form-group
+				margin-bottom: 20px
+				position: relative
+				input, textarea
+					padding: 10px
+					width: 100%
+					resize: none
+					border: none
+					background-color: #1b252f
+					color: #fff
+					font-size: 16px
+					transition: .5s
+					&:focus
+						background-color: lighten(#1b252f, 5%)
+			.button-container
+				button
+					font-size: 16px
+					padding: 6px 15px
+					background-color: transparent
+					color: #fff
+					border: 1px solid #fff
+					&:hover
+						span
+							transform: translateX(5px)
+					span
+						transition: .4s
+						transform: translateX(0)
+						display: inline-block
+
+footer
+	background-color: #1b252f
+	padding: 50px 0
+	
 
 // wew
