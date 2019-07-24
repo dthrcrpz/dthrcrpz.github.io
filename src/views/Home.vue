@@ -9,7 +9,7 @@
 						<br>
 						I'm a Full Stack Web Developer.
 					</h1>
-					<a href="javascript:void">Learn More <span class="arrow">→</span></a>
+					<a href="javascript:void" @click="scroll('.about')">Learn More <span class="arrow">→</span></a>
 				</div>
 			</div>
 			<vue-particles
@@ -155,6 +155,11 @@
 					let viewer = this.$el.querySelector('.images-viewer').$viewer
 	                viewer.show()
 				}, 100)
+			},
+			scroll (target) {
+				this.$scrollTo(target, {
+					offset: -69
+				})
 			},
 		}
 	}
