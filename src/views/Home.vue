@@ -17,7 +17,7 @@
 				color="#396775"
 				:particleOpacity="0.5"
 				linesColor="#396775"
-				:particlesNumber="60"
+				:particlesNumber="100"
 				shapeType="circle"
 				:particleSize="5"
 				hoverMode="grab"
