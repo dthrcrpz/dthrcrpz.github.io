@@ -66,16 +66,19 @@
 			<div class="container">
 				<h1 class="section-title">Projects</h1>
 				<div class="boxes-container">
-					<div class="box" :style="`background-image: url('/images/${project.imageFolderName}/1.png')`" v-for="(project, key) in projects" :key="key">
-						<div class="overlayer"></div>
-						<div class="texts">
-							<p class="title">{{ project.title }}</p>
-							<p class="tech">{{ project.techs }}</p>
+					<div class="box" v-for="(project, key) in projects" :key="key">
+						<div class="real-box" :style="`background-image: url('/images/${project.imageFolderName}/1.png')`">
+							<div class="overlayer"></div>
+							<div class="texts">
+								<p class="title">{{ project.title }}</p>
+								<p class="tech">{{ project.techs }}</p>
+							</div>
+							<div class="buttons">
+								<button class="button" @click="viewProject(key)">View Photos <span>+</span></button>
+								<a class="button" :href="project.link" target="_blank">Visit Site <span>↗</span></a>
+							</div>
 						</div>
-						<div class="buttons">
-							<button class="button" @click="viewProject(key)">View Photos <span>+</span></button>
-							<a class="button" :href="project.link" target="_blank">Visit Site <span>↗</span></a>
-						</div>
+							
 					</div>
 				</div>
 			</div>
@@ -137,9 +140,15 @@
 					},
 					{
 						title: 'LBC Online Booking',
-						techs: 'Vue',
+						techs: 'Vue, Laravel',
 						imageFolderName: 'lbc-online-booking',
 						link: 'https://online-booking.lbcexpress.com'
+					},
+					{
+						title: 'Westin Manila Residences',
+						techs: 'Vue, Nuxt, Laravel',
+						imageFolderName: 'westin-manila-residences',
+						link: 'http://westinmanilaresidences.com/'
 					},
 					{
 						title: 'YGC Rewards Plus',
@@ -153,6 +162,19 @@
 						imageFolderName: 'pera247',
 						link: 'https://pera247.ph/'
 					},
+					{
+						title: 'Asiakredit',
+						techs: 'Laravel',
+						imageFolderName: 'asiakredit',
+						link: 'https://asiakredit.com/'
+					},
+					{
+						title: 'RCBC Bankard',
+						techs: 'CodeIgniter (frontend only)',
+						imageFolderName: 'rcbcbankard',
+						link: 'http://rcbcbankard.com'
+					},
+					
 				],
 				projectToView: 0,
 				vViewOptions: {
@@ -207,7 +229,7 @@
 			},
 			scroll (target) {
 				this.$scrollTo(target, {
-					offset: -69
+					offset: -67
 				})
 			},
 		}
