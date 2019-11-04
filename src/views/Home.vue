@@ -44,21 +44,21 @@
 				<div class="right col">
 					<h2>Skills, Tools, & Technologies</h2>
 					<ul>
-						<li>HTML</li>
-						<li>Javascript</li>
-						<li>CSS</li>
-						<li>Vue</li>
-						<li>Nuxt</li>
-						<li>PHP</li>
-						<li>Laravel</li>
-						<li>MySQL</li>
-						<li>Git</li>
-						<li>SASS/LESS/Stylus</li>
-						<li>Linux</li>
-						<li>JSON</li>
-						<li>RESTful API's</li>
-						<li>AWS</li>
-						<li>npm</li>
+						<li class="stt">HTML</li>
+						<li class="stt">Javascript</li>
+						<li class="stt">CSS</li>
+						<li class="stt">Vue</li>
+						<li class="stt">Nuxt</li>
+						<li class="stt">PHP</li>
+						<li class="stt">Laravel</li>
+						<li class="stt">MySQL</li>
+						<li class="stt">Git</li>
+						<li class="stt">SASS/LESS/Stylus</li>
+						<li class="stt">Linux</li>
+						<li class="stt">JSON</li>
+						<li class="stt">RESTful API's</li>
+						<li class="stt">AWS</li>
+						<li class="stt">npm</li>
 					</ul>
 				</div>
 			</div>
@@ -238,7 +238,12 @@
 				// wew
                 let elementNames = [
                 	'.banner-intro',
-                	'.about .section-title'
+                	'.about .section-title',
+                	'.about .left',
+                	'.about .right',
+                	'.about .right ul li',
+                	'.projects .section-title',
+                	'.projects .box',
                 ]
 
                 elementNames.forEach((elementName, index) => {
@@ -252,9 +257,18 @@
                                     bounding.right > 0 &&
                                     bounding.left < (window.innerWidth || document.documentElement.clientWidth) &&
                                     bounding.top < (window.innerHeight || document.documentElement.clientHeight)) {
+
+                                	let delay = 350
+                                	if (el.classList.contains('banner-intro')) {
+                                		delay = 400
+                                	}
+                                	if (el.classList.contains('stt')) {
+                                		delay = 100
+                                	}
+
                                     setTimeout(() => {
                                         el.classList.add('ov')
-                                    }, 400 * index)
+                                    }, delay * index)
                                 }
                             })
                         } else {
