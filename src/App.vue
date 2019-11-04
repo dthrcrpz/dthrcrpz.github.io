@@ -17,6 +17,6 @@
     export default {
         components: {
             Navbar, ModalBackground, Foot, Loading
-        }
+        },
     }
 </script>

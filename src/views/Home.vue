@@ -2,14 +2,16 @@
 	<div class="page-home">
 		<section class="intro">
 			<div class="container">
-				<div class="photo"></div>
+				<div class="photo banner-intro"></div>
 				<div class="texts">
 					<h1>
-						Hi! I'm <span>Deither Corpuz</span>.
+						<span class="banner-intro">Hi! </span>
+						<span class="banner-intro">I'm </span>
+						<span class="name banner-intro">Deither Corpuz.</span>
 						<br>
-						I'm a Full Stack Web Developer.
+						<span class="banner-intro">I'm a Full Stack Web Developer.</span>
 					</h1>
-					<button @click="scroll('.about')">Learn More <span class="arrow">→</span></button>
+					<button @click="scroll('.about')" class="learn-more banner-intro">Learn More <span class="arrow">→</span></button>
 				</div>
 			</div>
 			<vue-particles
@@ -17,7 +19,7 @@
 				color="#396775"
 				:particleOpacity="0.5"
 				linesColor="#396775"
-				:particlesNumber="100"
+				:particlesNumber="20"
 				shapeType="circle"
 				:particleSize="5"
 				hoverMode="grab"
@@ -232,6 +234,51 @@
 					offset: -67
 				})
 			},
-		}
+			animate () {
+				// wew
+                let elementNames = [
+                	'.banner-intro',
+                	'.about .section-title'
+                ]
+
+                elementNames.forEach((elementName, index) => {
+                    let elements = document.querySelectorAll(elementName)
+
+                    if (elements) {
+                        if (elements.length > 1) {
+                            elements.forEach((el, index) => {
+                                let bounding = el.getBoundingClientRect()
+                                if (bounding.bottom > 0 &&
+                                    bounding.right > 0 &&
+                                    bounding.left < (window.innerWidth || document.documentElement.clientWidth) &&
+                                    bounding.top < (window.innerHeight || document.documentElement.clientHeight)) {
+                                    setTimeout(() => {
+                                        el.classList.add('ov')
+                                    }, 400 * index)
+                                }
+                            })
+                        } else {
+                            elements.forEach((el, index) => {
+                                let bounding = el.getBoundingClientRect()
+                                if (bounding.bottom > 0 &&
+                                    bounding.right > 0 &&
+                                    bounding.left < (window.innerWidth || document.documentElement.clientWidth) &&
+                                    bounding.top < (window.innerHeight || document.documentElement.clientHeight) - 300) {
+                                    el.classList.add('ov')
+                                }
+                            })
+                        }
+                    }
+                })
+            }
+		},
+		mounted () {
+			setTimeout(() => {
+				this.animate()
+			}, 500)
+		},
+		beforeMount () {
+            window.addEventListener('scroll', this.animate)
+        }
 	}
 </script>
